@@ -11,12 +11,12 @@ from urllib import request
 
 print('Downloading dataset from Zenodo')
 remote_url = 'https://zenodo.org/records/7913027/files/iskoras_measurements.csv'
-local_file = './datasets/iskoras_measurements.csv'
+local_file = 'iskoras_measurements.csv'
 request.urlretrieve(remote_url, local_file)
 
 
 #read data into pandas dataframe
-df=pd.read_csv('./datasets/iskoras_measurements.csv', index_col=0, parse_dates=True)
+df=pd.read_csv('iskoras_measurements.csv', index_col=0, parse_dates=True)
 df=df.rename(columns={
     'T$_\mathrm{soil}$':'soil_temperature',
     'VWC':'soil_volumetric_water_content',
@@ -89,7 +89,7 @@ for flux_version in ['co2_flux_filtered','ch4_flux_filtered']:
     
     plt.figure()
     df2.plot(subplots=True, style=',', figsize=(10,10))
-    plt.savefig('./plots/data_in_'+flux_version+'.png', bbox_inches='tight',dpi=300)
+    plt.savefig('data_in_'+flux_version+'.png', bbox_inches='tight',dpi=300)
     
     x = df2[predictors].values
     c = df2[flux_version].values
@@ -191,7 +191,7 @@ for flux_version in ['co2_flux_filtered','ch4_flux_filtered']:
         ax11.set_ylabel('Kernel estimated density')
         ax11.set_title('Prior parameter distributions')
         ax12.set_title('Posterior parameter distributions')
-        fig1.savefig('./plots/theta_subset_'+flux_version+'_run'+str(rid)+'.png', bbox_inches='tight', dpi=300)
+        fig1.savefig('theta_subset_'+flux_version+'_run'+str(rid)+'.png', bbox_inches='tight', dpi=300)
         
         
         print(" * * * Post pred...")
@@ -280,7 +280,7 @@ for flux_version in ['co2_flux_filtered','ch4_flux_filtered']:
             ax.set_ylabel(r'Observed total CH$_4$ flux [$\mu$mol m$^{-2}$ s$^{-1}$]')
                 
         ax.legend(loc='best')
-        fig.savefig('./plots/evaluation_'+flux_version+'_'+exp_name+'.png', bbox_inches='tight', dpi=300)
+        fig.savefig('evaluation_'+flux_version+'_'+exp_name+'.png', bbox_inches='tight', dpi=300)
         
     
     
