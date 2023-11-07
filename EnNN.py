@@ -66,14 +66,13 @@ def tsubspaceEnKA(X,Y,Yp,svdt=0.9):
     return Xu
     
 
-def forwardMLP(X,npl,w,b,afuncs='ReLU'):
+def forwardMLP(X,npl,w,b):
     """
     Inputs:
         X = Feature (predictor) matrix (Ns x Nf) 
         npl = Vector containing number of neurons per layer ((Nl+1) x 1) 
         w = Weight vector (concatenation of weight matrices for each layer) 
         b = Bias vector (concatenation of bias vector for each layer)
-        afuncs = Activation function for hidden layers
     Short hands: Ns = Number of sampled feature vectors, Nf = Number of
     features (inputs), Nl = Number of hidden layers.
     
@@ -103,7 +102,7 @@ def forwardMLP(X,npl,w,b,afuncs='ReLU'):
             Nprev=npl[j-1]
             Zold=Zj
             try:
-                wind=np.max(thesew)+1 # Important to add 1 otherwise 0-indexing screws you over
+                wind=np.max(thesew)+1
                 bind=np.max(theseb)+1
             except:
                 pdb.set_trace()
@@ -118,10 +117,9 @@ def forwardMLP(X,npl,w,b,afuncs='ReLU'):
         prodj=Wj@Zold
         sumj=prodj.T+bj
         Aj=sumj.T
-        # Only simple ReLU activiation for now (will add more later)
         if (j+1)<len(npl):
-            Zj=np.maximum(Aj,0) # Note, this works like max(a,b) in matlab, unlike np.max which is different
-            #Zj=np.tanh(Aj)
+            Zj=np.maximum(Aj,0)
+            #Zj=np.tanh(Aj) #other options for activation function
             #Zj=Aj/(1+np.exp(-Aj)) #Sigmoid linear unit (SiLU)
         else:
             Zj=Aj # Linear output layer

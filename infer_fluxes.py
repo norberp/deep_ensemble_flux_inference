@@ -46,9 +46,9 @@ predictors=['soil_temperature','soil_volumetric_water_content','air_temperature'
 
 # Hyperparameters
 np.random.seed(123)
-Ne=10 #number of ensemble members
+Ne=100 #number of ensemble members
 Na=128 #number of Kalman iterations for ES-MDA
-n_runs=2 #number of local ensemble runs for the deep ensemble approximation
+n_runs=100 #number of local ensemble runs for the deep ensemble approximation
 frac=1.0 #fraction of data to use, should some data be left out for independent validation
 mbf=0.1 #fraction of training data to use as a minibatch
 
