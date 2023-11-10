@@ -1,6 +1,6 @@
 # deep_ensemble_flux_inference
  
-This code can be used to disaggregate and gap-fill eddy covariance flux measurements based on a set of predictors, weights of surface classes, and total flux estimates using an ensemble of Baysian neural networks.
+This code can be used to disaggregate and gap-fill eddy covariance flux measurements based on a set of predictors, weights of surface classes, and total flux estimates using a Bayesian deep ensemble of neural networks.
 
 For eddy covariance data, the weights of surface classes could be estimated by a surface class map combined with a flux footprint model, e.g., https://footprint.kljun.net/index.php
 
