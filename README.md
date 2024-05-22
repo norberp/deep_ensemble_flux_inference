@@ -6,8 +6,8 @@ For eddy covariance data, the weights of surface classes could be estimated by a
 
 Use the infer_fluxes.py script to run the analysis and plot the results (.TXT file) with your favorite toolbox.
 
-The given example resembles the analysis in https://essopenarchive.org/doi/full/10.22541/essoar.168394762.23256034/v1
+The given example resembles the analysis in https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024GL109283
 
-The dataset is provided at doi.org/10.5281/zenodo.7913027
+The dataset is provided at https://doi.org/10.5281/zenodo.7913027
 
 The flux inference assumes 3 surface classes (called Ponds, Palsas, and Fens) and performs the disaggregation for CO2 and CH4 fluxes seperately.
